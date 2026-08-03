@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>不凡帝范梅勒糖果 · 2026秋季订货会邀请函</title>
+<meta property="og:title" content="不凡帝范梅勒糖果 · 2026秋季订货会">
+<meta property="og:description" content="诚邀您莅临8月14日秋季订货会，广美国际大酒店">
+<meta property="og:image" content="https://fanmeile-maker.github.io/invitation/og-image.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="315">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="不凡帝范梅勒糖果">
+<meta itemprop="name" content="不凡帝范梅勒糖果 · 2026秋季订货会邀请函">
+<meta itemprop="description" content="诚邀您莅临8月14日秋季订货会，广美国际大酒店">
+<meta itemprop="image" content="https://fanmeile-maker.github.io/invitation/og-image.png">
+<style>
+  :root {
+    --red: #C41E3A;
+    --red-deep: #8B1A2B;
+    --gold: #E8B84B;
+    --gold-light: #F5D078;
+    --card-bg: rgba(255,255,255,0.93);
+    --text: #4a1a1a;
+    --text-dim: #9B6B6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== 主滚动容器 ===== */
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    position: relative;
+  }
+
+  /* ===== 每页全屏 ===== */
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== 各页背景 — 红色主题渐变 ===== */
+  .page-1 { background: linear-gradient(160deg, #CC1E3A 0%, #A01830 40%, #7A1525 100%); }
+  .page-2 { background: linear-gradient(160deg, #B01A32 0%, #CC1E3A 40%, #8B182A 100%); }
+  .page-3 { background: linear-gradient(160deg, #96182C 0%, #CC1E3A 40%, #7A1525 100%); }
+  .page-4 { background: linear-gradient(160deg, #CC1E3A 0%, #B01A32 50%, #8B182A 100%); }
+  .page-5 { background: linear-gradient(160deg, #7A1525 0%, #CC1E3A 40%, #A01830 100%); }
+  .page-6 { background: linear-gradient(160deg, #8B182A 0%, #7A1525 40%, #CC1E3A 100%); }
+  .page-7 { background: linear-gradient(160deg, #CC1E3A 0%, #A01830 40%, #7A1525 100%); }
+
+  /* ===== 金粉粒子 ===== */
+  .particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(105vh) scale(0); opacity: 0; }
+    5%   { opacity: 0.8; }
+    85%  { opacity: 0.6; }
+    100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+  }
+
+  /* ===== 页面导航点 ===== */
+  .nav-dots {
+    position: fixed;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .nav-dot.active {
+    background: #FF6B6B;
+    box-shadow: 0 0 10px rgba(255,107,107,0.7);
+    transform: scale(1.5);
+  }
+
+  /* ===== 内容动画 ===== */
+  .page-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .page.visible .page-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .page.visible .page-content.delay-1 { transition-delay: 0.15s; }
+  .page.visible .page-content.delay-2 { transition-delay: 0.3s; }
+  .page.visible .page-content.delay-3 { transition-delay: 0.45s; }
+
+  /* ===== 卡片通用 ===== */
+  .card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+  }
+
+  /* ===== Page 1: 封面 ===== */
+  .cover-icon {
+    font-size: 72px;
+    margin-bottom: 12px;
+    animation: bounce 2s ease-in-out infinite;
+    display: block;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+  .cover-brand {
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: .08em;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,.3);
+    margin-bottom: 28px;
+  }
+  .cover-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 36px 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  }
+  .cover-card .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #CC1E3A, #E84855);
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 20px;
+    border-radius: 100px;
+    letter-spacing: .12em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .cover-card h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--red);
+    letter-spacing: .1em;
+    line-height: 1.5;
+  }
+  .cover-card .divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #CC1E3A, #E84855);
+    border-radius: 2px;
+    margin: 18px auto;
+  }
+  .cover-card .invite-to {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 2;
+  }
+  .swipe-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: hintPulse 2s ease-in-out infinite;
+  }
+  @keyframes hintPulse {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(6px); }
+  }
+  .swipe-hint span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: .1em;
+  }
+  .swipe-hint .arrow {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ===== 通用内容卡片 ===== */
+  .content-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.15);
+    text-align: center;
+    width: 100%;
+  }
+  .content-card .section-icon {
+    font-size: 44px;
+    margin-bottom: 10px;
+  }
+  .content-card h2 {
+    font-size: 22px;
+    color: var(--red);
+    font-weight: 800;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+  }
+  .content-card .gold-line {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 1px;
+    margin: 0 auto 16px;
+  }
+  .content-card p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 2;
+    text-align: left;
+  }
+  .content-card .hl { color: var(--red); font-weight: 700; }
+
+  /* ===== 公司介绍页 ===== */
+  .stat-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-item {
+    background: linear-gradient(135deg, #FFF5F5, #FFFDF5);
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    flex: 1 1 40%;
+    min-width: 100px;
+    border: 1px solid rgba(204,30,58,.15);
+  }
+  .stat-item .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--red);
+  }
+  .stat-item .lbl {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* ===== 产品页 ===== */
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .product-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #FFF5F5, #FFFDF5);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: left;
+    border: 1px solid rgba(204,30,58,.12);
+  }
+  .product-item .p-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+  .product-item .p-name {
+    font-size: 15px;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .product-item .p-desc {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* ===== 活动信息 ===== */
+  .section-header {
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: .12em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+  }
+  .section-header::before,
+  .section-header::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .section-header::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    text-align: left;
+  }
+  .info-item + .info-item {
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+  .info-item .ico {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .ico-date { background: #FFF0F0; }
+  .ico-time { background: #FFF8EE; }
+  .ico-loc  { background: #FFFDF0; }
+  .info-item .txt .lbl {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 2px;
+  }
+  .info-item .txt .val {
+    font-size: 17px;
+    color: var(--text);
+    font-weight: 700;
+  }
+  .info-item .txt .sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* ===== 流程 ===== */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 4px; bottom: 4px;
+    width: 2px;
+    background: linear-gradient(180deg, #CC1E3A, #E84855, #FF6B6B);
+    border-radius: 1px;
+  }
+  .tl-item {
+    position: relative;
+    padding-bottom: 18px;
+    padding-left: 18px;
+    text-align: left;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -20px; top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #C41E3A;
+    box-shadow: 0 0 8px rgba(196,30,58,.5);
+  }
+  .tl-item:nth-child(even)::before { background: #D4A843; box-shadow: 0 0 8px rgba(212,168,67,.5); }
+  .tl-item:last-child::before { background: #F0D078; box-shadow: 0 0 8px rgba(240,208,120,.6); }
+  .tl-time {
+    font-size: 12px;
+    color: #C41E3A;
+    font-weight: 700;
+    letter-spacing: .04em;
+    margin-bottom: 3px;
+  }
+  .tl-desc {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ===== 结尾 ===== */
+  .end-icon {
+    font-size: 60px;
+    margin-bottom: 8px;
+  }
+  .end-card h2 {
+    font-size: 22px;
+    color: var(--red);
+    font-weight: 800;
+    letter-spacing: .08em;
+    margin-bottom: 20px;
+  }
+  .end-card .org {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 2;
+  }
+  .end-card .date-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 8px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+  }
+
+  @supports (-webkit-overflow-scrolling: touch) {
+    .wrapper { -webkit-overflow-scrolling: touch; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 金粉粒子 -->
+<div class="particles" id="particles"></div>
+
+<!-- 导航点 -->
+<div class="nav-dots" id="navDots">
+  <div class="nav-dot active" data-page="0"></div>
+  <div class="nav-dot" data-page="1"></div>
+  <div class="nav-dot" data-page="2"></div>
+  <div class="nav-dot" data-page="3"></div>
+  <div class="nav-dot" data-page="4"></div>
+  <div class="nav-dot" data-page="5"></div>
+  <div class="nav-dot" data-page="6"></div>
+</div>
+
+<div class="wrapper" id="wrapper">
+
+  <!-- ====== 1. 封面 ====== -->
+  <section class="page page-1" data-index="0">
+    <div class="page-content">
+      <span class="cover-icon">🧧</span>
+      <div class="cover-brand">
+        不凡帝范梅勒糖果（中国）有限公司<br>广西海南办事处
+      </div>
+      <div class="cover-card">
+        <div class="badge">🏮 2026 秋季订货会 🏮</div>
+        <h1>诚 挚 邀 请</h1>
+        <div class="divider"></div>
+        <p class="invite-to">
+          尊敬的合作伙伴<br>
+          恭请您拨冗莅临
+        </p>
+      </div>
+    </div>
+    <div class="swipe-hint" id="swipeHint">
+      <span>向上滑动</span>
+      <div class="arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- ====== 2. 产品优势 ====== -->
+  <section class="page page-2" data-index="1">
+    <div class="page-content delay-1">
+      <div class="content-card">
+        <div class="section-icon">🏆</div>
+        <h2>不凡帝范梅勒（中国）有限公司</h2>
+        <div class="gold-line"></div>
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="num">30年</div>
+            <div class="lbl">深耕中国市场</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">300万+</div>
+            <div class="lbl">终端门店覆盖</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">第2位</div>
+            <div class="lbl">阿尔卑斯零售排名</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">30亿+</div>
+            <div class="lbl">在华年销售额</div>
+          </div>
+        </div>
+        <div class="product-list" style="margin-top:14px;">
+          <div class="product-item">
+            <div class="p-icon">⭐</div>
+            <div>
+              <div class="p-name">强大品牌力</div>
+              <div class="p-desc">阿尔卑斯、曼妥思、珍宝珠、比巴卜等知名品牌，家喻户晓，终端动销快</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">🔬</div>
+            <div>
+              <div class="p-name">持续产品创新</div>
+              <div class="p-desc">每年推出新口味新品类，2026年跨界冰淇淋市场，持续创造增长点</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">🏭</div>
+            <div>
+              <div class="p-name">品质保障</div>
+              <div class="p-desc">5座现代化工厂，国际标准品控体系，品质稳定值得信赖</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">📢</div>
+            <div>
+              <div class="p-name">全方位营销支持</div>
+              <div class="p-desc">广告投放+终端物料+促销活动，助力合作伙伴快速打开市场</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3. 产品介绍 ====== -->
+  <section class="page page-3" data-index="2">
+    <div class="page-content delay-1">
+      <div class="content-card">
+        <div class="section-icon">🍭</div>
+        <h2>明星品牌矩阵</h2>
+        <div class="gold-line"></div>
+        <div class="product-list">
+          <div class="product-item">
+            <div class="p-icon">🍬</div>
+            <div>
+              <div class="p-name">阿尔卑斯 Alpenliebe</div>
+              <div class="p-desc">经典顺滑奶糖 · 畅销30+国家 · 中国零售排名第二</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">🌿</div>
+            <div>
+              <div class="p-name">曼妥思 Mentos</div>
+              <div class="p-desc">清新酷爽 · 创新包装 · 独特水果口味</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">🍭</div>
+            <div>
+              <div class="p-name">珍宝珠 Chupa Chups</div>
+              <div class="p-desc">棒棒糖经典品牌 · 100+种口味</div>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="p-icon">🫧</div>
+            <div>
+              <div class="p-name">比巴卜 BigBabol</div>
+              <div class="p-desc">经典泡泡糖 · "吹泡泡就吹比巴卜"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 4. 欢迎词 ====== -->
+  <section class="page page-4" data-index="3">
+    <div class="page-content delay-1">
+      <div class="content-card">
+        <div class="section-icon">🤝</div>
+        <h2>致合作伙伴</h2>
+        <div class="gold-line"></div>
+        <p style="text-align:center;">
+          感谢您长期以来的<br>
+          <span class="hl">信任与支持</span><br><br>
+          在这金秋收获的季节<br>
+          我们诚邀您莅临<br>
+          <span class="hl">2026秋季订货会</span><br><br>
+          共商发展 · 共赢未来
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 5. 活动信息 ====== -->
+  <section class="page page-5" data-index="4">
+    <div class="page-content delay-1">
+      <div class="card">
+        <div class="section-header">📋 活 动 信 息</div>
+        <div class="info-item">
+          <div class="ico ico-date">📅</div>
+          <div class="txt">
+            <div class="lbl">日期</div>
+            <div class="val">2026年8月14日</div>
+            <div class="sub">周五</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="ico ico-time">⏰</div>
+          <div class="txt">
+            <div class="lbl">时间</div>
+            <div class="val">18:30 开始</div>
+            <div class="sub">17:30 起签到入场</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="ico ico-loc">📍</div>
+          <div class="txt">
+            <div class="lbl">地点</div>
+            <div class="val">广美国际大酒店</div>
+            <div class="sub">广西南宁市西乡塘区</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 6. 流程 ====== -->
+  <section class="page page-6" data-index="5">
+    <div class="page-content delay-1">
+      <div class="card">
+        <div class="section-header">🕐 会 议 流 程</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-time">17:30 — 18:30</div>
+            <div class="tl-desc">嘉宾签到入场</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">18:30 — 19:00</div>
+            <div class="tl-desc">新品深度推广 / 政策宣讲</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">19:00 — 20:30</div>
+            <div class="tl-desc">晚宴</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">19:15 — 20:15</div>
+            <div class="tl-desc">订货有奖互动</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">20:15 — 20:30</div>
+            <div class="tl-desc">颁奖表彰</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">20:30</div>
+            <div class="tl-desc">晚宴圆满结束 🎉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 7. 结尾 ====== -->
+  <section class="page page-7" data-index="6">
+    <div class="page-content delay-1">
+      <div class="content-card end-card">
+        <div class="end-icon">🧧</div>
+        <h2>期待您的莅临！</h2>
+        <div class="gold-line"></div>
+        <div class="org">
+          不凡帝范梅勒糖果（中国）有限公司<br>
+          广西海南办事处
+        </div>
+        <div class="date-tag">2026年8月</div>
+      </div>
+    </div>
+    <div class="swipe-hint" style="bottom:32px;">
+      <span>回顶部</span>
+      <div class="arrow">↑</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  // ===== 金红粒子 =====
+  var colors = ['#CC1E3A','#E84855','#FF6B6B','#F5D078','#FFD1D1','#FFB3B3','#E8B84B','#FFF0D0'];
+  var particlesEl = document.getElementById('particles');
+  for (var i = 0; i < 35; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var size = Math.random() * 12 + 8;
+    p.style.width  = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 8 + 14) + 's';
+    p.style.animationDelay = (Math.random() * 14) + 's';
+    particlesEl.appendChild(p);
+  }
+
+  // ===== 页面可见性 =====
+  var pages = document.querySelectorAll('.page');
+  var dots = document.querySelectorAll('.nav-dot');
+  var swipeHint = document.getElementById('swipeHint');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        var idx = parseInt(entry.target.getAttribute('data-index'));
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        if (dots[idx]) dots[idx].classList.add('active');
+        if (idx === 0) {
+          swipeHint.style.display = 'flex';
+        } else {
+          swipeHint.style.display = 'none';
+        }
+      }
+    });
+  }, { threshold: 0.6 });
+
+  pages.forEach(function(page) { observer.observe(page); });
+
+  // ===== 导航点点击 =====
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-page'));
+      if (pages[idx]) {
+        pages[idx].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  setTimeout(function() {
+    if (pages[0]) pages[0].classList.add('visible');
+  }, 100);
+})();
+</script>
+
+</body>
+</html>
